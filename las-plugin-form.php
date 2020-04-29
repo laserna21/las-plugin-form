@@ -177,8 +177,12 @@ function Las_Plugin_Form(){
 add_action("admin_menu","Las_Encuestado_menu");
 /*Agrega el menú del plugin al formulario de wordpress */
 function Las_Encuestado_menu(){
-    add_menu_page("Formulario Encuestados","Encuestados","manage_option","las_encuestado_menu",
-                    "Las_Encuestado_admin","dashicons-feedback",75);
+    global $_wp_last_object_menu;
+
+    $_wp_last_object_menu++;
+    
+    add_menu_page("Formulario Encuestados","Encuestados","manage_options","las_encuestado_menu",
+                    "Las_Encuestado_admin","dashicons-feedback",$_wp_last_object_menu);
 }
 
 function Las_Encuestado_admin(){
